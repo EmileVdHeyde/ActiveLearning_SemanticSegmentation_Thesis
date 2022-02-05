@@ -1,0 +1,36 @@
+# Model Configuration
+model:
+    arch: frrnB
+
+# Data Configuration
+data:
+    dataset: cityscapes
+    train_split: train
+    val_split: val 
+    img_rows: 256
+    img_cols: 512
+    path: /content/drive/MyDrive/SemSeg2/data_random
+
+
+# Training Configuration
+training:
+    n_workers: 64
+    train_iters: 67500
+    batch_size: 1
+    val_interval: 5000
+    print_interval: 1
+    loss:
+        name: cross_entropy
+      
+
+    # Optmizer Configuration
+    optimizer:
+        name: adam
+        lr: 1.0e-3
+
+    
+    # LR Schedule Configuration
+    lr_schedule:
+        name: constant_lr
+
+    resume: content/model.pt
